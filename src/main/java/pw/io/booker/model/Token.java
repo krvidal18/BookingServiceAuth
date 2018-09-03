@@ -2,13 +2,15 @@ package pw.io.booker.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Authentication {
+public class Token {
 	@GeneratedValue
-	private int authenticationId;
+	@Id
+	private int tokenId;
 	private String token;
 	@OneToOne
 	@JoinColumn(name = "customerId")
@@ -18,12 +20,12 @@ public class Authentication {
 		return customer;
 	}
 	
-	public int getAuthenticationId() {
-		return authenticationId;
+	public int getTokenId() {
+		return tokenId;
 	}
 
-	public void setAuthenticationId(int authenticationId) {
-		this.authenticationId = authenticationId;
+	public void setTokenId(int tokenId) {
+		this.tokenId = tokenId;
 	}
 
 	public void setCustomer(Customer customer) {
@@ -37,5 +39,4 @@ public class Authentication {
 	public void setToken(String token) {
 		this.token = token;
 	}
-
 }

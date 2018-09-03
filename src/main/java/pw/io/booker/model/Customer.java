@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -31,9 +30,6 @@ public class Customer {
 		return customerId;
 	}
 
-	@OneToOne(mappedBy = "customer")
-	private Authentication authentication;
-
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
@@ -52,14 +48,6 @@ public class Customer {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public Authentication getAuthentication() {
-		return authentication;
-	}
-
-	public void setAuthentication(Authentication authentication) {
-		this.authentication = authentication;
 	}
 
 	public String getPassword() {
